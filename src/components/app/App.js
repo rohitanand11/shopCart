@@ -1,24 +1,33 @@
-import React ,{Component} from 'react';
+import React, { useState } from 'react';
 import Header from '../header/Header';
 import MainDisplay from "../mainDisplay/MainDisplay";
+import PaginationTab from "../paginationTab/PaginationTab";
 
-import Classes from  './App.module.scss';
-import {sliceArray} from '../../data/data';
+import Classes from './App.module.scss';
+import * as utility from "../../utility/utility";
 
-class App extends Component{
+const PRODUCTS_PER_PAGE = 9;
 
-  firstTenelems = ()=>{
-    return sliceArray(1,10);
+const App = () => {
+
+  const [currPage, setCurrPage] = useState(1);
+
+  const updateCurrPageFunc = (pPage) => {
+    setCurrPage(pPage);
   }
 
-  render(){
-    return(
-      <div className={Classes.App}>
-        <Header/>
-        <MainDisplay data={this.firstTenelems()}/>
-      </div>
-    )
+  const updateDataForCurrPage = () => {
+    const dataForCurrentPage = utility.pageData(currPage, PRODUCTS_PER_PAGE);
+    return dataForCurrentPage;
   }
+
+  return (
+    <div className={Classes.App}>
+      <Header />
+      <MainDisplay data={updateDataForCurrPage()} />
+      <PaginationTab totalPages={utility.totalLengthOfData / PRODUCTS_PER_PAGE} currentPage={currPage} updateCurrentPage={updateCurrPageFunc} />
+    </div>
+  )
 }
 
 export default App;
