@@ -1,0 +1,28 @@
+.PaginationTab{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .Pages{
+        min-width:499px ;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+
+        .listStyle{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        li{
+            padding-left: 10px;
+            padding-right: 10px;
+            cursor:grab;
+        }
+    }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
-import Classes from './Pagination.module.css';
+import Classes from './PaginationTab.module.scss';
 
 const NUMBER_OF_PAGES_TO_SHOW = 4;
 
-const PaginationTab = ({ totalPages, currentPage }) => {
+const PaginationTab = ({ totalPages, currentPage ,updateCurrentPage}) => {
 
     const pageNumberArray = [];
 
@@ -11,7 +11,7 @@ const PaginationTab = ({ totalPages, currentPage }) => {
 
         let threshold = totalPages - (totalPages - currentPage) + 3;
 
-        if (currentPage > 1 || currentPage < threshold) {
+        if (currentPage > 1 && currentPage < threshold) {
 
             let pageNum = currentPage - 1;
 
@@ -38,17 +38,31 @@ const PaginationTab = ({ totalPages, currentPage }) => {
             }
 
         }
+    };
+
+    const prevFunc = () => {
+        if(pageNumberArray[0]>1){
+            updateCurrentPage(currentPage-1);
+        }
+    }
+
+    const nextFunc = () => {
+        if(pageNumberArray[pageNumberArray.length-1]<totalPages-1){
+            updateCurrentPage(currentPage+1);
+        }
     }
 
     const renderPageNumber = () => {
         pageNumberArrayLogic();
         return (
             <div className={Classes.Pages}>
-                <span>Prev</span>
+                <span onClick={prevFunc} style={{cursor:"grab"}}>Prev</span>
+                <ul className={Classes.listStyle}>
                 {pageNumberArray.map((elem) => {
-                    <li key={elem}><a className={Classes.links} href="#">{elem}</a></li>
+                    return <li key={elem} onClick={()=>updateCurrentPage(elem)}>{elem}</li>
                 })}
-                <span>Next</span>
+                </ul>
+                <span onClick={nextFunc} style={{cursor:"grab"}}>Next</span>
             </div>
         )
     };
