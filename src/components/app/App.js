@@ -3,12 +3,12 @@ import Header from '../header/Header';
 import MainDisplay from "../mainDisplay/MainDisplay";
 
 import Classes from  './App.module.scss';
-import {data} from '../../data/tanishq_products';
+import {sliceArray} from '../../data/data';
 
 class App extends Component{
 
   firstTenelems = ()=>{
-    return data;
+    return sliceArray(1,10);
   }
 
   render(){

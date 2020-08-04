@@ -1,20 +1,27 @@
 .Card{
-    width:90%;
-    height: 25px;
-    border: 2px black solid;
+    max-width: 400px;
+    height: 600px;
+    // border: 2px black solid;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     .Card_image_container{
-        width:50%;
+        max-height:60%;
 
         .Card_image{
             width:100%;
-            background-position: center;
+            height: 100%;
+            
         }
     }
 
-    .list{
-        list-style: none;
+    .Description{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
     }
+
+    
 }

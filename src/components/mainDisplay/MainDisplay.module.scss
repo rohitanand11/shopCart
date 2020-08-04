@@ -1,0 +1,12 @@
+.MainDisplay{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .Card_alignment{
+        padding:5px;
+    }
+}
