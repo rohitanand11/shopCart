@@ -4,6 +4,8 @@ import Classes from './Card.module.scss';
 
 const Card = (props) => {
 
+    
+
     return (
         <div className={Classes.Card}>
             <div className={Classes.Card_image_container}>
@@ -15,6 +17,7 @@ const Card = (props) => {
                 <div style ={{marginTop:"15px",width:"80%"}}>
                     {props.product.description}
                 </div>
+                {props.product['avlble']===0 ? <p>Not Available</p>: <p>Available</p>}
 
             </div>
         </div>
