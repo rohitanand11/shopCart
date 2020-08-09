@@ -5,8 +5,10 @@ import PaginationTab from "../paginationTab/PaginationTab";
 
 import Classes from "./App.module.scss";
 import * as utility from "../../utility/utility";
+import Footer from "../footer/Footer";
 
 const PRODUCTS_PER_PAGE = 9;
+const DEVELOPER_NAME = 'ROHIT ANAND';
 utility.filterOnlyAvailable();
 
 const App = () => {
@@ -42,6 +44,7 @@ const App = () => {
         currentPage={currPage}
         updateCurrentPage={updateCurrPageFunc}
       />
+      <Footer DeveloperName={DEVELOPER_NAME}/>
     </div>
   );
 };

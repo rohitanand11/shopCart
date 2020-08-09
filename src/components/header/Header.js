@@ -6,14 +6,14 @@ const Header = (props) => {
   const availableCheck = () => {
     return props.OnlyAvailable ? (
       <div
-        class={Classes.Available}
+        className={Classes.Available}
         style={{ backgroundColor: "green",color:"whitesmoke" }}
         onClick={props.changeAvailable}
       >
         filter available
       </div>
     ) : (
-      <div class={Classes.Available} onClick={props.changeAvailable}>
+      <div className={Classes.Available} onClick={props.changeAvailable}>
         filter available
       </div>
     );
